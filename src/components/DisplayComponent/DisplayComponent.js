@@ -1,12 +1,17 @@
 import styles from './DisplayComponent.module.scss'
 
-const DisplayComponent = props => {
+const DisplayComponent = ({ time }) => {
+  const milliseconds = time % 1000;
+  const seconds = Math.floor((time / 1000) % 60);
+  const minutes = Math.floor((time / 1000 / 60) % 60);
+  const hours = Math.floor((time / 1000 / 60 / 60) % 24);
+
   return (
     <div className={styles.displayComponent}>
-      <span>{(props.time.h >= 10) ? props.time.h : "0" + props.time.h}</span>&nbsp;:&nbsp;
-      <span>{(props.time.m >= 10) ? props.time.m : "0" + props.time.m}</span>&nbsp;:&nbsp;
-      <span>{(props.time.s >= 10) ? props.time.s : "0" + props.time.s}</span>&nbsp;.&nbsp;
-      <span>{props.time.ms}</span>
+      <span>{(hours >= 10) ? hours : "0" + hours}</span>&nbsp;:&nbsp;
+      <span>{(minutes >= 10) ? minutes : "0" + minutes}</span>&nbsp;:&nbsp;
+      <span>{(seconds >= 10) ? seconds : "0" + seconds}</span>&nbsp;.&nbsp;
+      <span>{milliseconds}</span>
     </div>
   );
 }
