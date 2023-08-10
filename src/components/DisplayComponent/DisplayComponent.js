@@ -4,7 +4,7 @@ const DisplayComponent = ({ time }) => {
   const milliseconds = time % 1000;
   const seconds = Math.floor((time / 1000) % 60);
   const minutes = Math.floor((time / 1000 / 60) % 60);
-  const hours = Math.floor((time / 1000 / 60 / 60) % 24);
+  const hours = Math.floor((time / 1000 / 60 / 60));
 
   return (
     <div className={styles.displayComponent}>
