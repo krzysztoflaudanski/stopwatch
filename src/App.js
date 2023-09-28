@@ -29,7 +29,7 @@ const App = () => {
     return () => {
       if (interv) clearInterval(interv);
     };
-  }, []);
+  }, [interv]);
 
   return (
     <div>
